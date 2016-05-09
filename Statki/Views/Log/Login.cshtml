@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm("Login", "Log", FormMethod.Post))
+{
+    <br>
+    <div class="player col-md">
+        <div class="col-md-10 ">
+            <label>Player 1: </label>
+            @Html.TextBox("player1")<br>
+        </div>
+        <div class="col-md-10">
+            <label>Player 2: </label>
+            @Html.TextBox("player2")
+        </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default" > </button>
+            </div>
+        </div>
+}
+      
+
+
+      
+

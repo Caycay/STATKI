@@ -1,0 +1,51 @@
+﻿body {
+    background-color: #a2eef9;
+}
+
+
+.table-bordered .ShipCell {
+    height: 40px;
+    width: 50px;
+    border: 2px solid green;
+    background-color:greenyellow;
+}
+
+.table-bordered .Cell {
+    border: 1px solid black;
+    height: 40px;
+    width: 50px;
+}
+
+.table-bordered .Fail {
+    height: 40px;
+    border: 1px solid black;
+    width: 50px;
+    font-size: 25px;
+    text-align: center;
+    vertical-align: middle;
+    color: black;
+}
+
+.table-bordered .Sink {
+     border: 3px solid blue;
+    height: 40px;
+    width: 50px;
+    font-size: 25px;
+    color: red;
+    background-color: blue;
+    text-align: center;
+    vertical-align: middle;
+   
+   
+}
+.place{
+    padding:20px;
+    background-color: aliceblue;
+    width: 300px;
+    height: auto;
+    margin-left: 390px;
+    border:double;
+    margin-top: 30px;
+       
+}
+

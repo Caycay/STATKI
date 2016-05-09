@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "ShowMap";
+}
+
+
+@using Battle.ViewModel
+@model List<Battle.ViewModel.MapViewModel>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTitle</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4">
+            <label>Player: </label>
+            @Html.DisplayFor(model => model.First(y => y.IsGo).NamePlayer)
+
+
+            <table class="table-bordered">
+                <tbody>
+                    @for (int i = 0; i < Model.First(x => x.IsGo).HighMap; i++)
+                    {
+                        
+                        <tr>
+                            @for (int j = 0; j < Model.First(x => x.IsGo).LengthMap; j++)
+                            {
+                                if (Model.First(x => x.IsGo).Fields.FirstOrDefault(x => x.X == j && x.Y == i && x.State == State.Statek) != null)
+                                {
+                                    <td class="ShipCell"></td>
+                                }
+                                else if (Model.First(x => x.IsGo).Fields.FirstOrDefault(x => x.X == j && x.Y == i && x.State == State.Zatopiony) != null)
+                                {
+                                    <td class="Sink">X</td>
+                                }
+                                else
+                                {
+                                    <td class="Cell"></td>
+                                }
+
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="col-md-6">
+            @Html.Partial("_PartialMapOpponent", Model.First(x => x.IsGo == false))
+        </div>
+    </div>
+
+
+
+        @using (Html.BeginForm("ShowMap", "Game", FormMethod.Post))
+            {
+            <div class="place">
+
+                @Html.HiddenFor(x => x.First(y => y.IsGo).IdPlayer)
+                @Html.HiddenFor(x => x.First(y => y.IsGo).NamePlayer, Model.First(y => y.IsGo).NamePlayer)
+                @Html.HiddenFor(x => x.First(y => y.IsGo).IdOpponent, Model.First(y => y.IsGo).IdOpponent)
+
+                <label>Horizontally: </label>
+                @Html.DropDownListFor(x => x.First(y => y.IsGo).ShotX, new SelectList(Enumerable.Range(0, 6)))
+                <br>
+                <label>Perpendicularly: </label>
+                @Html.DropDownListFor(x => x.First(y => y.IsGo).ShotY, new SelectList(Enumerable.Range(0, 6)))
+                <br>
+                <div>
+                    <button type="submit" class="btn btn-default"> FIRE! </button>
+                </div>
+            </div>
+        }
+        <div>
+            @if (Model.FirstOrDefault(x => x.IsWinner) != null)
+            {
+                @Html.Partial("GameOver", Model.First(x => x.IsWinner))
+            }
+
+        </div>
+
+</body>
+</html>

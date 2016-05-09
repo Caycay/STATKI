@@ -1,0 +1,38 @@
+﻿body {
+    background-color: #9999FF;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.battle_ship{
+    height: auto;
+    width: auto;
+    margin: 50px;
+    background-color:aliceblue;
+    padding: 10px;
+    text-align: center;
+    border: double;
+
+}
+.player{
+    height: auto;
+    width: auto;
+    padding: 30px;
+    margin: 10px;
+    background-color: aliceblue;
+    text-align: center;
+    border: double;
+    
+}
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
